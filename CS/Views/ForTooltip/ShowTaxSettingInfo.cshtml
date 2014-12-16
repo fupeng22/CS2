@@ -1,0 +1,17 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <div>
+        <input  type="hidden"  id="hd_TaxNO" name="hd_TaxNO" value='@ViewData["hd_TaxNO"]'/>
+        <table id="pgTaxRateSettingInfo" style="width: 300px; height: 150px">
+        </table>
+        <script src="@Url.Content("~/JS/Common/ShowTaxSettingInfo.js")" type="text/javascript"></script>
+    </div>
+</body>
+</html>

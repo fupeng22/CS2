@@ -1,0 +1,332 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index</title>
+    <script src="@Url.Content("~/Scripts/jquery-1.4.4.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/JqueryUI/jquery.easyui.min.js")" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/JqueryUI/themes/black/easyui.css")" rel="stylesheet"
+        title="black" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/JqueryUI/themes/bootstrap/easyui.css")" rel="stylesheet"
+        title="bootstrap"/>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/JqueryUI/themes/cupertino/easyui.css")" rel="stylesheet"
+        title="cupertino"/>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/JqueryUI/themes/dark-hive/easyui.css")" rel="stylesheet"
+        title="dark-hive"/>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/JqueryUI/themes/default/easyui.css")" rel="stylesheet"
+        title="default"/>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/JqueryUI/themes/gray/easyui.css")" rel="stylesheet"
+        title="gray"/>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/JqueryUI/themes/metro/easyui.css")" rel="stylesheet"
+        title="metro"/>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/JqueryUI/themes/metro-blue/easyui.css")" rel="stylesheet"
+        title="metro-blue"/>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/JqueryUI/themes/metro-gray/easyui.css")" rel="stylesheet"
+        title="metro-gray"/>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/JqueryUI/themes/metro-green/easyui.css")" rel="stylesheet"
+        title="metro-green"/>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/JqueryUI/themes/metro-orange/easyui.css")" rel="stylesheet"
+        title="metro-orange"/>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/JqueryUI/themes/metro-red/easyui.css")" rel="stylesheet"
+        title="metro-red"/>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/JqueryUI/themes/pepper-grinder/easyui.css")" rel="stylesheet"
+        title="pepper-grinder"/>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/JqueryUI/themes/sunny/easyui.css")" rel="stylesheet"
+        title="sunny"/>
+    <link href="@Url.Content("~/JqueryUI/themes/icon.css")"  rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/JS/Forwarder/WayBillInput.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/JqueryUI/easyui-lang-zh_CN.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/My97DatePicker/WdatePicker.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/JS/Common/Common.js")" type="text/javascript"></script>
+</head>
+<body>
+    <div id="mainLayout" class="easyui-layout" fit="true" border="false">
+        <div data-options="region:'north',title:'',split:true" style="height: 200px;" border="false">
+            <div id="toolBar_MainWayBill" style="padding: 0px; height: auto">
+                <a href="#" class="easyui-linkbutton" id="btnSeleAll_WayBill" iconcls="icon-seleall"
+                    plain="true">全选</a>|<a href="#" class="easyui-linkbutton" id="btnInverseSele_WayBill"
+                        iconcls="icon-inversesele" plain="true">反选</a>|<a href="#" class="easyui-linkbutton"
+                            id="btnAdd_WayBill" iconcls="icon-add" plain="true">添加</a>|<a href="#" class="easyui-linkbutton"
+                                id="btnUpdate_WayBill" iconcls="icon-edit" plain="true">修改</a>|<a href="#" class="easyui-linkbutton"
+                                    id="btnDele_WayBill" iconcls="icon-remove" plain="true">删除</a>&nbsp;&nbsp;报关日期:<input type="text" id="inputBeginDate" name="inputBeginDate" onfocus="WdatePicker();"
+                class="Wdate" style="width: 90px"  value='@(DateTime.Now.ToString("yyyy-MM-dd"))'/>---<input type="text" id="inputEndDate" name="inputEndDate"
+                    onfocus="WdatePicker();" class="Wdate" style="width: 90px"  value='@(DateTime.Now.ToString("yyyy-MM-dd"))'/>&nbsp;报关货代公司:<input
+                        type="text" id="txtVoyage" name="txtVoyage" />&nbsp;总运单号:<input type="text" id="txtGCode"
+                            name="txtGCode" />
+                <a href="#" id="GbtnQuery" name="GbtnQuery" class="easyui-linkbutton" data-options="iconCls:'icon-search'">
+                    查询</a><span style="font-weight: bold; color: Red">&nbsp;双击可修改</span> @*<a href="#" id="btnFullScreen_WayBill" name="btnFullScreen_WayBill" class="easyui-linkbutton" data-options="iconCls:'icon-search'">
+                    全屏</a><a href="#" id="btnResetScreen_WayBill" name="btnResetScreen_WayBill" class="easyui-linkbutton" data-options="iconCls:'icon-search'">
+                    还原</a>*@
+            </div>
+            <div class="easyui-panel" title="总运单信息" style="height: 55px; padding: 0" collapsible="false"
+                fit="true">
+                <div id="DG_WayBillResult" fit="true" style="width: 800px; height: 600px">
+                </div>
+            </div>
+        </div>
+        <div data-options="region:'center',title:''" style="padding: 0px;" border="false">
+            <div id="toolBar_SubWayBill" style="padding: 2px; height: auto">
+                <a href="#" class="easyui-linkbutton" id="btnSeleAll_SubWayBill" iconcls="icon-seleall"
+                    plain="true">全选</a>|<a href="#" class="easyui-linkbutton" id="btnInverseSele_SubWayBill"
+                        iconcls="icon-inversesele" plain="true">全不选</a>|<a href="javascript:void(0)" id="menuSubWayBillMainInfo"
+                            class="easyui-menubutton" data-options="menu:'#menuButtons_SubWayBillMain',iconCls:'icon-report',plain:true">
+                            分运单头</a>
+                <div id="menuButtons_SubWayBillMain" style="width: 150px;">
+                    <div id="btnAdd_SubWayBill_Main" name="btnAdd_SubWayBill_Main" data-options="iconCls:'icon-add'">
+                        添加分运单头</div>
+                    <div id="btnUpdate_SubWayBill_Main" name="btnUpdate_SubWayBill_Main" data-options="iconCls:'icon-edit'">
+                        修改分运单头</div>
+                    <div id="btnDelete_SubWayBill_Main" name="btnDelete_SubWayBill_Main" data-options="iconCls:'icon-remove'">
+                        删除分运单头</div>
+                </div>|<a href="javascript:void(0)" id="menuSubWayBillDetailInfo" class="easyui-menubutton"
+                    data-options="menu:'#menuButtons_SubWayBillDetail',iconCls:'icon-report',plain:true">
+                    分运单明细</a>
+                <div id="menuButtons_SubWayBillDetail" style="width: 150px;">
+                    <div id="btnAdd_SubWayBill_Detail" name="btnAdd_SubWayBill_Detail" data-options="iconCls:'icon-add'">
+                        添加分运单明细</div>
+                    <div id="btnUpdate_SubWayBill_Detail" name="btnUpdate_SubWayBill_Detail" data-options="iconCls:'icon-edit'">
+                        修改分运单明细</div>
+                    <div id="btnDelete_SubWayBill_Detail" name="btnDelete_SubWayBill_Detail" data-options="iconCls:'icon-remove'">
+                        删除分运单明细</div>
+                </div>|<a href="#" class="easyui-linkbutton" id="btnFullScreen_SubWayBill" iconcls="icon-fullscreen"
+                    plain="true">全屏</a>|<a href="#" class="easyui-linkbutton" id="btnResetScreen_SubWayBill"
+                        iconcls="icon-resetscreen" plain="true">还原</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;总运单号:<input
+                            type="hidden" id="hid_wbId_Sele" name="hid_wbId_Sele" /><input type="text" id="txtWbSerialNum_Sub"
+                                name="txtWbSerialNum_Sub" readonly value="请先选择总运单..." style="width: 140px" />&nbsp;分运单号:<input
+                                    type="text" id="txtSwbSerialNum_Sub" name="txtSwbSerialNum_Sub" style="width: 140px" />&nbsp;
+                <a href="#" id="btnQuerySubWayBill" name="btnQuerySubWayBill" class="easyui-linkbutton"
+                    data-options="iconCls:'icon-search'">查询</a><span style="font-weight: bold; color: Red">&nbsp;双击可修改</span>
+            </div>
+            <div class="easyui-panel" title="分运单信息" style="height: 55px; padding: 0" collapsible="false"
+                fit="true">
+                <div id="DG_SubWayBillResult" fit="true" style="width: 800px; height: 600px">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="span_WayBill">
+        <table>
+            <tr>
+                <td>
+                    总运单号:
+                </td>
+                <td>
+                    <input type="hidden" id="hid_wbId" name="hid_wbId" />
+                    <input type="text" id="txtwbSerialNum" name="txtwbSerialNum" /><span style="color: Red">*</span>
+                </td>
+                <td>
+                    运输工具航次:
+                </td>
+                <td>
+                    <input type="text" id="txtwbVoyage" name="txtwbVoyage" />
+                </td>
+                <td>
+                    舱单进出口标志:
+                </td>
+                <td>
+                    <input type="text" id="txtwbIOmark" name="txtwbIOmark" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    中文运输工具:
+                </td>
+                <td>
+                    <input type="text" id="txtwbChinese" name="txtwbChinese" />
+                </td>
+                <td>
+                    英文运输工具:
+                </td>
+                <td>
+                    <input type="text" id="txtwbEnglish" name="txtwbEnglish" />
+                </td>
+                <td>
+                    运输方式:
+                </td>
+                <td>
+                    <input type="text" id="txtwbTransportMode" name="txtwbTransportMode" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    进港日期:
+                </td>
+                <td>
+                    <input type="text" id="txtwbEntryDate" name="txtwbEntryDate" onfocus="WdatePicker();" class="Wdate"   value='@(DateTime.Now.ToString("yyyy-MM-dd"))'/>
+                </td>
+                <td>
+                    起运港/抵运地:
+                </td>
+                <td>
+                    <input type="text" id="txtwbSRport" name="txtwbSRport" />
+                </td>
+                <td>
+                    进出口岸代码:
+                </td>
+                <td>
+                    <input type="text" id="txtwbPortCode" name="txtwbPortCode" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    总重量:
+                </td>
+                <td>
+                    <input type="text" id="txtwbTotalWeight" name="txtwbTotalWeight" /><span style="color: Red">*</span>
+                </td>
+                <td>
+                    总件数:
+                </td>
+                <td>
+                    <input type="text" id="txtwbTotalNumber" name="txtwbTotalNumber" /><span style="color: Red">*</span>
+                </td>
+                <td>
+                    分运单数:
+                </td>
+                <td>
+                    <input type="text" id="txtwbSubNumber" name="txtwbSubNumber" /><span style="color: Red">*</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="span_SubWayBill_Main">
+        <table>
+            <tr>
+                <td>
+                    分运单号:
+                </td>
+                <td>
+                    <input type="hidden" id="hid_swbId_Main" name="hid_swbId_Main" />
+                    <input type="text" id="txtSwbSerialNum_Main" name="txtSwbSerialNum_Main" /><span
+                        style="color: Red">*</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    发件人:
+                </td>
+                <td>
+                    <input type="text" id="txtSender" name="txtSender" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    收件人身份证号:
+                </td>
+                <td>
+                    <input type="text" id="txtReceiverIDCard" name="txtReceiverIDCard" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    联系方式:
+                </td>
+                <td>
+                    <input type="text" id="txtReceiverPhone" name="txtReceiverPhone" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    邮件地址:
+                </td>
+                <td>
+                    <input type="text" id="txtEmailAddress" name="txtEmailAddress" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    收件人地址:
+                </td>
+                <td>
+                    <input type="text" id="txtSwbRecipients" name="txtSwbRecipients" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    报关类别:
+                </td>
+                <td>
+                    <input type="text" id="txtSwbCustomsCategory_Main" name="txtSwbCustomsCategory_Main"
+                        style="width: 100px" /><span style="color: Red">*</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="span_SubWayBill_Detail">
+        <table>
+            <tr>
+                <td>
+                    分运单号:
+                </td>
+                <td colspan="3">
+                    <span style="color: Red; font-weight: bold" id="span_swbSerialNum_Tip"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    税号:
+                </td>
+                <td>
+                    <input type="text" id="txtTaxNo_Detail" name="txtTaxNo_Detail" />
+                </td>
+                <td>
+                    货物中文名称:
+                </td>
+                <td>
+                    <input type="hidden" id="hid_swbdId_Detail" name="hid_swbdId_Detail" />
+                    <input type="hidden" id="hid_swbId_Detail" name="hid_swbId_Detail" />
+                    <input type="text" id="txtSwbDescription_CHN_Detail" name="txtSwbDescription_CHN_Detail"
+                        style="width: 200px" /><span style="color: Red">*</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    货物英文名称:
+                </td>
+                <td>
+                    <input type="text" id="txtSwbDescription_ENG_Detail" name="txtSwbDescription_ENG_Detail" />
+                </td>
+                <td>
+                    件数:
+                </td>
+                <td>
+                    <input type="text" id="txtSwbNumber_Detail" name="txtSwbNumber_Detail" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    重量:
+                </td>
+                <td>
+                    <input type="text" id="txtSwbWeight_Detail" name="txtSwbWeight_Detail" />
+                </td>
+                <td>
+                    价值:
+                </td>
+                <td>
+                    <input type="text" id="txtSwbValue_Detail" name="txtSwbValue_Detail" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    税率:
+                </td>
+                <td>
+                    <input type="text" id="txtTaxRate_Detail" name="txtTaxRate_Detail" style="width: 150px" />
+                </td>
+                <td>
+                    币制:
+                </td>
+                <td>
+                    <input type="text" id="txtSwbMonetary_Detail" name="txtSwbMonetary_Detail" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="dlg_Detail" data-options="iconCls:'icon-save'" style="padding: 1px; width: 400px;
+        height: 300px;">
+    </div>
+</body>
+</html>

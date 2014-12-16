@@ -1,0 +1,576 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Index</title>
+    <script src="@Url.Content("~/JS/Common/PrintTaxSheet.js")" type="text/javascript"></script>
+    <style type="text/css">
+        td
+        {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    @{
+        Model.M_TaxSheet m_TaxSheet_CustomsTax = ViewBag.CustomsTax_FormItems as Model.M_TaxSheet;
+        Model.M_TaxSheet m_TaxSheet_ValueAddedTax = ViewBag.ValueAddedTax_FormItems as Model.M_TaxSheet;  
+    }
+    <div>
+        <input type="hidden" id="hid_txtWbID" name="hid_txtWbID" value="@ViewData["wbID"]" />
+        <input type="hidden" id="hid_TaxSheetMaxNO" name="hid_TaxSheetMaxNO" value="@ViewData["TaxSheetMaxNO"]" />
+        
+        <table>
+            <tr>
+                <td>
+                    <div>
+                        <center>
+                            <span style="font-weight: bold; font-size: medium">海关专用缴税单(关税)</span></center>
+                        <br />
+                        <span>收入系统</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>填发日期:</span><input type="text"
+                            id="span_IssuanceDate_CustomsTax" name="span_IssuanceDate_CustomsTax"  style="width:120px" value='@DateTime.Now.ToString("yyyy年MM月dd日")'/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>号码NO.:<input
+                                type="text" id="span_NO_CustomsTax" name="span_NO_CustomsTax" value="@m_TaxSheet_CustomsTax.NO" /></span>
+                    </div>
+                    <table cellpadding="2" style="width: 630px">
+                        <tr>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td style="width: 50%">
+                                            <table cellpadding="2" width="100%">
+                                                <tr>
+                                                    <td style="width: 70px">
+                                                        收入机关
+                                                    </td>
+                                                    <td colspan="3">
+                                                        <input type="text" value="@m_TaxSheet_CustomsTax.txtInComeOffice" id="txtInComeOffice_CustomsTax" name="txtInComeOffice_CustomsTax"
+                                                            style="width: 100%; border-color: Blue"  />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        科 目
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" value="@m_TaxSheet_CustomsTax.txtSubject" id="txtSubject_CustomsTax" name="txtSubject_CustomsTax"
+                                                            style="width: 100%; border-color: Blue" />
+                                                    </td>
+                                                    <td>
+                                                        预算级次
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" value="@m_TaxSheet_CustomsTax.txtBudgetLevels" id="txtBudgetLevels_CustomsTax" name="txtBudgetLevels_CustomsTax"
+                                                            style="width: 100%; border-color: Blue" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        收款国库
+                                                    </td>
+                                                    <td colspan="3">
+                                                        <input type="text" value="@m_TaxSheet_CustomsTax.txtRecipientTreasury" id="txtRecipientTreasury_CustomsTax" name="txtRecipientTreasury_CustomsTax"
+                                                            style="width: 100%; border-color: Blue" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td style="width: 20px">
+                                            缴款单位(人)
+                                        </td>
+                                        <td style="width: 50%">
+                                            <table cellpadding="2" width="100%;">
+                                                <tr>
+                                                    <td>
+                                                        名称
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" value="@m_TaxSheet_CustomsTax.txtPaymentUnit" id="txtPaymentUnit_CustomsTax" name="txtPaymentUnit_CustomsTax"
+                                                            style="width: 100%; border-color: Blue" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        账号
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" value="@m_TaxSheet_CustomsTax.txtAccountNo" id="txtAccountNo_CustomsTax" name="txtAccountNo_CustomsTax"
+                                                            style="width: 100%; border-color: Blue" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        开户银行
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" value="@m_TaxSheet_CustomsTax.txtBankName" id="txtBankName_CustomsTax" name="txtBankName_CustomsTax"
+                                                            style="width: 100%; border-color: Blue" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table cellpadding="2" width="100%">
+                                    <tr>
+                                        <td>
+                                            税号
+                                        </td>
+                                        <td>
+                                            货物名称
+                                        </td>
+                                        <td>
+                                            数量
+                                        </td>
+                                        <td>
+                                            单位
+                                        </td>
+                                        <td>
+                                            完税价格(￥)
+                                        </td>
+                                        <td>
+                                            税率(%)
+                                        </td>
+                                        <td>
+                                            税款金额(￥)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" value="" id="txtTaxNo_CustomsTax" name="txtTaxNo_CustomsTax" style="width: 90px;
+                                                border-color: Blue" />
+                                        </td>
+                                        <td>
+                                            <input type="text" value="" id="txtDescription_CHN_CustomsTax" name="txtDescription_CHN_CustomsTax"
+                                                style="width: 150px; border-color: Blue" />
+                                        </td>
+                                        <td>
+                                            <input type="text" value="@m_TaxSheet_CustomsTax.txtNumber" id="txtNumber_CustomsTax" name="txtNumber_CustomsTax"
+                                                style="border-color: Blue; width: 40px" />
+                                        </td>
+                                        <td>
+                                            <input type="text" value="@m_TaxSheet_CustomsTax.txtUnit" id="txtUnit_CustomsTax" name="txtUnit_CustomsTax" style="border-color: Blue;
+                                                width: 40px" />
+                                        </td>
+                                        <td>
+                                            <input type="text"  value="@m_TaxSheet_CustomsTax.txtFullValue"  id="txtFullValue_CustomsTax" name="txtFullValue_CustomsTax"
+                                                style="border-color: Blue; width: 60px" />
+                                        </td>
+                                        <td>
+                                            <input type="text" value="@m_TaxSheet_CustomsTax.txtTaxRate" id="txtTaxRate_CustomsTax" name="txtTaxRate_CustomsTax"
+                                                style="border-color: Blue; width: 40px" />
+                                        </td>
+                                        <td>
+                                            <input type="text"  value="@m_TaxSheet_CustomsTax.txtTaxValue"  id="txtTaxValue_CustomsTax" name="txtTaxValue_CustomsTax"
+                                                style="border-color: Blue; width: 60px" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table cellpadding="2" width="100%">
+                                    <tr>
+                                        <td>
+                                            金额人民币(大写)
+                                        </td>
+                                        <td>
+                                            <input type="text"  value="@m_TaxSheet_CustomsTax.txtTotalTaxValueToUpper"  id="txtTotalTaxValueToUpper_CustomsTax" name="txtTotalTaxValueToUpper_CustomsTax"
+                                                style="border-color: Blue; width: 300px" />
+                                        </td>
+                                        <td>
+                                            合计(￥)
+                                        </td>
+                                        <td>
+                                            <input type="text"  value="@m_TaxSheet_CustomsTax.txtTotalTaxValue"  id="txtTotalTaxValue_CustomsTax" name="txtTotalTaxValue_CustomsTax"
+                                                style="border-color: Blue; width: 100px" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table cellpadding="2" width="100%">
+                                    <tr>
+                                        <td style="width: 60%">
+                                            <table cellpadding="2">
+                                                <tr>
+                                                    <td style="width: 100px">
+                                                        申请单位编号
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" value="" id="txtApplyCompanyNo_CustomsTax" name="txtApplyCompanyNo_CustomsTax"
+                                                            style="border-color: Blue; width: 70px" />
+                                                    </td>
+                                                    <td style="width: 100px">
+                                                        报关单编号
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" value="" id="txtBillNOofEntry_CustomsTax" name="txtBillNOofEntry_CustomsTax"
+                                                            style="border-color: Blue; width: 70px" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        合同(批文)号
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" value="" id="txtContractNO_CustomsTax" name="txtContactNO_CustomsTax"
+                                                            style="border-color: Blue; width: 70px" />
+                                                    </td>
+                                                    <td>
+                                                        运输工具(号)
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" value="" id="txtTransportTools_CustomsTax" name="txtTransportTools_CustomsTax"
+                                                            style="border-color: Blue; width: 70px" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        缴款期限
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" value="" id="txtEndLineOfPay_CustomsTax" name="txtEndLineOfPay_CustomsTax"
+                                                            style="border-color: Blue; width: 70px" />
+                                                    </td>
+                                                    <td>
+                                                        提/装货单号
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" value="" id="txtPickGoodsNO_CustomsTax" name="txtPickGoodsNO_CustomsTax"
+                                                            style="border-color: Blue; width: 70px" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4" style="width: 100%">
+                                                        <table style="width: 100%">
+                                                            <tr>
+                                                                <td style="width: 10px">
+                                                                    备<br />
+                                                                    注
+                                                                </td>
+                                                                <td style="width: 95%">
+                                                                    <textarea style="border-color: Blue;" rows="4" cols="35" id="hd_taMemo_CustomsTax" name="hd_taMemo_CustomsTax">@ViewData["wbSerialNum"]</textarea>
+                                                                    @*<input type="hidden" id="hd_taMemo_CustomsTax" name="hd_taMemo_CustomsTax" />*@<br />
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td>
+                                            填制单位<br />
+                                            <hr />
+                                            <br />
+                                            <br />
+                                            <br />
+                                            <br />
+                                            制单人<input type="text" value="" id="txtTableMaker_CustomsTax" name="txtTableMaker_CustomsTax"
+                                                style="border-color: Blue; width: 80px" /><hr />
+                                            <br />
+                                            复核人<input type="text" value="" id="txtTableChecker_CustomsTax" name="txtTableChecker_CustomsTax"
+                                                style="border-color: Blue; width: 80px" />
+                                        </td>
+                                        <td>
+                                            收款国库<hr />
+                                            <br />
+                                            <input type="text" value="" id="txtNationTreasury_CustomsTax" name="txtNationTreasury_CustomsTax"
+                                                style="border-color: Blue; width: 80px" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <div>
+                        <center>
+                            <span style="font-weight: bold; font-size: medium">海关专用缴税单(增值税)</span></center>
+                        <br />
+                        <span style="float: left">收入系统</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>填发日期:</span><input type="text"
+                            id="span_IssuanceDate_ValueAddedTax" name="span_IssuanceDate_ValueAddedTax"  style="width:120px" value="@DateTime.Now.ToString("yyyy年MM月dd日")"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                style="float: right">号码NO.:<input type="text" id="span_NO_ValueAddedTax" name="span_NO_ValueAddedTax"
+                                    value="@m_TaxSheet_ValueAddedTax.NO" /></span>
+                    </div>
+                    <table cellpadding="2" style="width: 630px">
+                        <tr>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td style="width: 50%">
+                                            <table cellpadding="2" width="100%">
+                                                <tr>
+                                                    <td style="width: 70px">
+                                                        收入机关
+                                                    </td>
+                                                    <td colspan="3">
+                                                        <input type="text" value="@m_TaxSheet_ValueAddedTax.txtInComeOffice" id="txtInComeOffice_ValueAddedTax" name="txtInComeOffice_ValueAddedTax"
+                                                            style="width: 100%; border-color: Blue" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        科 目
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" value="@m_TaxSheet_ValueAddedTax.txtSubject" id="txtSubject_ValueAddedTax" name="txtSubject_ValueAddedTax"
+                                                            style="width: 100%; border-color: Blue" />
+                                                    </td>
+                                                    <td>
+                                                        预算级次
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" value="@m_TaxSheet_ValueAddedTax.txtBudgetLevels" id="txtBudgetLevels_ValueAddedTax" name="txtBudgetLevels_ValueAddedTax"
+                                                            style="width: 100%; border-color: Blue" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        收款国库
+                                                    </td>
+                                                    <td colspan="3">
+                                                        <input type="text" value="@m_TaxSheet_ValueAddedTax.txtRecipientTreasury" id="txtRecipientTreasury_ValueAddedTax" name="txtRecipientTreasury_ValueAddedTax"
+                                                            style="width: 100%; border-color: Blue" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td style="width: 20px">
+                                            缴款单位(人)
+                                        </td>
+                                        <td style="width: 50%">
+                                            <table cellpadding="2" width="100%;">
+                                                <tr>
+                                                    <td>
+                                                        名称
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" value="@m_TaxSheet_ValueAddedTax.txtPaymentUnit" id="txtPaymentUnit_ValueAddedTax" name="txtPaymentUnit_ValueAddedTax"
+                                                            style="width: 100%; border-color: Blue" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        账号
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" value="@m_TaxSheet_ValueAddedTax.txtAccountNo" id="txtAccountNo_ValueAddedTax" name="txtAccountNo_ValueAddedTax"
+                                                            style="width: 100%; border-color: Blue" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        开户银行
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" value="@m_TaxSheet_ValueAddedTax.txtBankName" id="txtBankName_ValueAddedTax" name="txtBankName_ValueAddedTax"
+                                                            style="width: 100%; border-color: Blue" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table cellpadding="2" width="100%">
+                                    <tr>
+                                        <td>
+                                            税号
+                                        </td>
+                                        <td>
+                                            货物名称
+                                        </td>
+                                        <td>
+                                            数量
+                                        </td>
+                                        <td>
+                                            单位
+                                        </td>
+                                        <td>
+                                            完税价格(￥)
+                                        </td>
+                                        <td>
+                                            税率(%)
+                                        </td>
+                                        <td>
+                                            税款金额(￥)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" value="" id="txtTaxNo_ValueAddedTax" name="txtTaxNo_ValueAddedTax"
+                                                style="width: 90px; border-color: Blue" />
+                                        </td>
+                                        <td>
+                                            <input type="text" value="" id="txtDescription_CHN_ValueAddedTax" name="txtDescription_CHN_ValueAddedTax"
+                                                style="width: 150px; border-color: Blue" />
+                                        </td>
+                                        <td>
+                                            <input type="text" value="@m_TaxSheet_ValueAddedTax.txtNumber" id="txtNumber_ValueAddedTax" name="txtNumber_ValueAddedTax"
+                                                style="border-color: Blue; width: 40px" />
+                                        </td>
+                                        <td>
+                                            <input type="text" value="@m_TaxSheet_ValueAddedTax.txtUnit" id="txtUnit_ValueAddedTax" name="txtUnit_ValueAddedTax"
+                                                style="border-color: Blue; width: 40px" />
+                                        </td>
+                                        <td>
+                                            <input type="text" value="@m_TaxSheet_ValueAddedTax.txtFullValue" id="txtFullValue_ValueAddedTax" name="txtFullValue_ValueAddedTax"
+                                                style="border-color: Blue; width: 60px" />
+                                        </td>
+                                        <td>
+                                            <input type="text" value="@m_TaxSheet_ValueAddedTax.txtTaxRate" id="txtTaxRate_ValueAddedTax" name="txtTaxRate_ValueAddedTax"
+                                                style="border-color: Blue; width: 40px" />
+                                        </td>
+                                        <td>
+                                            <input type="text" value="@m_TaxSheet_ValueAddedTax.txtTaxValue" id="txtTaxValue_ValueAddedTax" name="txtTaxValue_ValueAddedTax"
+                                                style="border-color: Blue; width: 60px" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table cellpadding="2" width="100%">
+                                    <tr>
+                                        <td>
+                                            金额人民币(大写)
+                                        </td>
+                                        <td>
+                                            <input type="text" value="@m_TaxSheet_ValueAddedTax.txtTotalTaxValueToUpper" id="txtTotalTaxValueToUpper_ValueAddedTax" name="txtTotalTaxValueToUpper_ValueAddedTax"
+                                                style="border-color: Blue; width: 300px" />
+                                        </td>
+                                        <td>
+                                            合计(￥)
+                                        </td>
+                                        <td>
+                                            <input type="text" value="@m_TaxSheet_ValueAddedTax.txtTotalTaxValue" id="txtTotalTaxValue_ValueAddedTax" name="txtTotalTaxValue_ValueAddedTax"
+                                                style="border-color: Blue; width: 100px" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table cellpadding="2" width="100%">
+                                    <tr>
+                                        <td style="width: 60%">
+                                            <table cellpadding="2">
+                                                <tr>
+                                                    <td style="width: 100px">
+                                                        申请单位编号
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" value="" id="txtApplyCompanyNo_ValueAddedTax" name="txtApplyCompanyNo_ValueAddedTax"
+                                                            style="border-color: Blue; width: 70px" />
+                                                    </td>
+                                                    <td style="width: 100px">
+                                                        报关单编号
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" value="" id="txtBillNOofEntry_ValueAddedTax" name="txtBillNOofEntry_ValueAddedTax"
+                                                            style="border-color: Blue; width: 70px" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        合同(批文)号
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" value="" id="txtContractNO_ValueAddedTax" name="txtContactNO_ValueAddedTax"
+                                                            style="border-color: Blue; width: 70px" />
+                                                    </td>
+                                                    <td>
+                                                        运输工具(号)
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" value="" id="txtTransportTools_ValueAddedTax" name="txtTransportTools_ValueAddedTax"
+                                                            style="border-color: Blue; width: 70px" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        缴款期限
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" value="" id="txtEndLineOfPay_ValueAddedTax" name="txtEndLineOfPay_ValueAddedTax"
+                                                            style="border-color: Blue; width: 70px" />
+                                                    </td>
+                                                    <td>
+                                                        提/装货单号
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" value="" id="txtPickGoodsNO_ValueAddedTax" name="txtPickGoodsNO_ValueAddedTax"
+                                                            style="border-color: Blue; width: 70px" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4" style="width: 100%">
+                                                        <table style="width: 100%">
+                                                            <tr>
+                                                                <td style="width: 10px">
+                                                                    备<br />
+                                                                    注
+                                                                </td>
+                                                                <td style="width: 95%">
+                                                                    <textarea style="border-color: Blue;" rows="4" cols="35" id="hd_taMemo_ValueAddedTax"
+                                                                        name="hd_taMemo_ValueAddedTax">@ViewData["wbSerialNum"]</textarea>
+                                                                    @*<input type="hidden" id="hd_taMemo_ValueAddedTax" name="hd_taMemo_ValueAddedTax" />*@<br />
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td>
+                                            填制单位<br />
+                                            <hr />
+                                            <br />
+                                            <br />
+                                            <br />
+                                            <br />
+                                            制单人<input type="text" value="" id="txtTableMaker_ValueAddedTax" name="txtTableMaker_ValueAddedTax"
+                                                style="border-color: Blue; width: 80px" /><hr />
+                                            <br />
+                                            复核人<input type="text" value="" id="txtTableChecker_ValueAddedTax" name="txtTableChecker_ValueAddedTax"
+                                                style="border-color: Blue; width: 80px" />
+                                        </td>
+                                        <td>
+                                            收款国库<hr />
+                                            <br />
+                                            <input type="text" value="" id="txtNationTreasury_ValueAddedTax" name="txtNationTreasury_ValueAddedTax"
+                                                style="border-color: Blue; width: 80px" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <br />
+                    <center>
+                        <a href="#" id="btnPrintPreview" name="btnPrintPreview" class="easyui-linkbutton"
+                            data-options="iconCls:'icon-preview'">打印预览</a>|<a href="#" id="btnConfirmPrint" name="btnConfirmPrint"
+                                class="easyui-linkbutton" data-options="iconCls:'icon-print'"> 确认并打印</a></center>
+                    <br />
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

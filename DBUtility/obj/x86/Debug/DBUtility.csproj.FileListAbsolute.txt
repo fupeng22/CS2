@@ -1,0 +1,5 @@
+E:\华宇设计工厂\华宇设计工厂\DBUtility\bin\x86\Debug\DBUtility.dll
+E:\华宇设计工厂\华宇设计工厂\DBUtility\bin\x86\Debug\DBUtility.pdb
+E:\华宇设计工厂\华宇设计工厂\DBUtility\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\华宇设计工厂\华宇设计工厂\DBUtility\obj\x86\Debug\DBUtility.dll
+E:\华宇设计工厂\华宇设计工厂\DBUtility\obj\x86\Debug\DBUtility.pdb

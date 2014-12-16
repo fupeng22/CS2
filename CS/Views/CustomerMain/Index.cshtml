@@ -1,0 +1,250 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/CustomerMain/_Layout.cshtml";
+}
+<div id="layout_Main" class="easyui-layout" data-options="fit:true,border:false">
+    <div region="north" split="false" style="height: 58px;" border="true">
+        <table style="width: 100%; height: 100%; border-width: 0px" cellpadding="0px" cellspacing="0px">
+            <tr style="width: 100%">
+                <td style="background-image: url('../../images/Customer/top.jpg');">
+                    <table>
+                        <tr>
+                            <td rowspan="2" style="width: 550px">
+                            </td>
+                            <td style="width: 600px">
+                                <span class="bs"><a class="styleswitch black" style="cursor: pointer" rel="black"></a>
+                                    <a class="styleswitch bootstrap" style="cursor: pointer" rel="bootstrap"></a><a class="styleswitch cupertino"
+                                        style="cursor: pointer" rel="cupertino"></a>&nbsp;&nbsp;<a class="styleswitch dark-hive"
+                                            style="cursor: pointer" rel="dark-hive"></a>&nbsp;&nbsp;<a class="styleswitch gray"
+                                                style="cursor: pointer" rel="gray"></a>&nbsp;&nbsp;<a class="styleswitch default"
+                                                    style="cursor: pointer" rel="default"></a> &nbsp;&nbsp;<a class="styleswitch metro"
+                                                        style="cursor: pointer" rel="metro"></a> &nbsp;&nbsp;<a class="styleswitch metro-blue"
+                                                            style="cursor: pointer" rel="metro-blue"></a> &nbsp;&nbsp;<a class="styleswitch metro-gray"
+                                                                style="cursor: pointer" rel="metro-gray"></a> &nbsp;&nbsp;<a class="styleswitch metro-green"
+                                                                    style="cursor: pointer" rel="metro-green"></a> &nbsp;&nbsp;<a class="styleswitch metro-orange"
+                                                                        style="cursor: pointer" rel="metro-orange"></a>
+                                    &nbsp;&nbsp;<a class="styleswitch metro-red" style="cursor: pointer" rel="metro-red"></a>
+                                    &nbsp;&nbsp;<a class="styleswitch pepper-grinder" style="cursor: pointer" rel="pepper-grinder"></a>
+                                    &nbsp;&nbsp;<a class="styleswitch sunny" style="cursor: pointer" rel="sunny"></a>
+                                </span>
+                            </td>
+                            <td rowspan="2">
+                                <a href="#" id="btnRelogin" class="easyui-linkbutton" data-options="iconCls:'icon-exit'">
+                                    注销</a>&nbsp;&nbsp;&nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span id="lblCurrentDate"></span>&nbsp;&nbsp;&nbsp; <span style="font-weight: bold;
+                                    font-size: medium">当前登录:<font style="color: Red">@Session["Global_Customer_UserName"]</font>
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div region="west" split="true" style="width: 150px;" border="false">
+        <div id="LeftNavigation" class="easyui-accordion" fit="true">
+            <div title="首页" style="overflow: auto;">
+                <center>
+                    <br />
+                    <a href="#" id="btnWelcome" class="easyui-linkbutton">首&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;页</a>
+                </center>
+            </div>
+            <div title="审单布控" style="overflow: auto;">
+                <center>
+                    <br />
+                    <a href="#" id="btnCheck" class="easyui-linkbutton">审&nbsp;&nbsp;单&nbsp;&nbsp;布&nbsp;&nbsp;控</a>
+                </center>
+            </div>
+            <div title="现场查验" style="overflow: auto;">
+                <center>
+                    <br />
+                    <a href="#" id="btnSceneCheck" class="easyui-linkbutton">查&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;验</a>
+                    <br />
+                    <br />
+                    <a href="#" id="btnSceneConfirmCheck" class="easyui-linkbutton">审&nbsp;&nbsp;核&nbsp;&nbsp;确&nbsp;&nbsp;认</a>
+                </center>
+            </div>
+            <div title="异常处理" style="overflow: auto;">
+                <center>
+                    <br />
+                    <a href="#" id="btnExceptionHandle" class="easyui-linkbutton">异&nbsp;&nbsp;常&nbsp;&nbsp;处&nbsp;&nbsp;理</a>
+                </center>
+            </div>
+            <div title="税费稽核" style="overflow: auto;">
+                <center>
+                    <br />
+                    <a href="#" id="btnTaxFeeCheck" class="easyui-linkbutton">税&nbsp;&nbsp;费&nbsp;&nbsp;稽&nbsp;&nbsp;查</a>
+                    <br />
+                    <br />
+                    <a href="#" id="btnTaxFeeCheckAgain" class="easyui-linkbutton">税&nbsp;&nbsp;费&nbsp;&nbsp;复&nbsp;&nbsp;核</a>
+                </center>
+            </div>
+            <div title="审单放行" style="overflow: auto;">
+                <center>
+                    <br />
+                    <a href="#" id="btnConfirm" class="easyui-linkbutton">审&nbsp;&nbsp;单&nbsp;&nbsp;放&nbsp;&nbsp;行</a>
+                </center>
+            </div>
+            <div title="统计查询" style="overflow: auto;">
+                <center>
+                    <br />
+                    <a href="#" id="btnStatistic" class="easyui-linkbutton">统&nbsp;&nbsp;计&nbsp;&nbsp;查&nbsp;&nbsp;询</a>
+                    <br />
+                    <br />
+                    <a href="#" id="btnQuery" class="easyui-linkbutton">查&nbsp;询&nbsp;退&nbsp;货&nbsp;信&nbsp;息</a>
+                    <br />
+                    <br />
+                    <a href="#" id="btnQuery" class="easyui-linkbutton">货&nbsp;物&nbsp;状&nbsp;态&nbsp;查&nbsp;询</a>
+                    <br />
+                    <br />
+                    <a href="#" id="btnQuery" class="easyui-linkbutton">库&nbsp;&nbsp;存&nbsp;&nbsp;查&nbsp;&nbsp;询</a>
+                </center>
+            </div>
+            <div title="基础设置" style="overflow: auto;">
+                <center>
+                    <br />
+                    <a href="#" id="btnTaxRateSetting" class="easyui-linkbutton">税&nbsp;&nbsp;费&nbsp;&nbsp;设&nbsp;&nbsp;置</a>
+                    <br />
+                    <br />
+                    <a href="#" id="btnCustomsTaxSheetSetting" class="easyui-linkbutton">关&nbsp;税&nbsp;单&nbsp;设&nbsp;置</a>
+                    <br />
+                    <br />
+                    <a href="#" id="btnValueAddedTaxSheetSetting" class="easyui-linkbutton">增&nbsp;值&nbsp;税&nbsp;单&nbsp;设&nbsp;置</a>
+                    <br />
+                    <br />
+                    <a href="#" id="btnQuery" class="easyui-linkbutton">用&nbsp;&nbsp;户&nbsp;&nbsp;管&nbsp;&nbsp;理</a>
+                    <br />
+                    <br />
+                    <a href="#" id="btnQuery" class="easyui-linkbutton">密&nbsp;&nbsp;码&nbsp;&nbsp;管&nbsp;&nbsp;理</a>
+                </center>
+            </div>
+            @*<div title="视频监控" style="overflow: auto;">
+                <center>
+                    <br />
+                    <a href="#" id="btnDVRReal" class="easyui-linkbutton">视 频 监 控</a>
+                </center>
+            </div>
+            <div title="录像查询" style="overflow: auto;">
+                <center>
+                    <br />
+                    <a href="#" id="btnDVRQuery" class="easyui-linkbutton">录 像 查 询</a>
+                </center>
+            </div>*@
+        </div>
+    </div>
+    <div region="center" style="background: #eee;" border="false" split="true">
+        <div id="tab_Content" class="easyui-tabs" fit="true" border="false">
+            <div title="使用指南" style="padding: 0px;">
+                <center>
+                    <object id="honehoneclock" width="160" height="70" align="middle" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0"
+                        classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">
+                        <param name="allowScriptAccess" value="always">
+                        <param name="movie" value="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.swf">
+                        <param name="quality" value="high">
+                        <param name="bgcolor" value="#ffffff">
+                        <param name="wmode" value="transparent">
+                        <embed wmode="transparent" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.swf"
+                            quality="high" bgcolor="#ffffff" name="honehoneclock" allowscriptaccess="always"
+                            type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"
+                            align="middle" height="70" width="160"></object>
+                    <table style="width: 503px; height: 225px;">
+                        <tr style="height: 30px">
+                            <td colspan="6">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img id="haiguanyujian" src="../../images/Customer/haiguanyujian1.jpg" />
+                            </td>
+                            <td>
+                                <img id="fangxingguanli" src="../../images/Customer/fangxingguanli1.jpg" />
+                            </td>
+                            <td>
+                                <img id="tongjichaxun" src="../../images/Customer/tongjichaxun1.jpg" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                审单布控
+                            </td>
+                            <td>
+                                查验放行
+                            </td>
+                            <td>
+                                统计查询
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img id="shipinjiankong" src="../../images/Customer/shipinjiankong1.jpg" />
+                            </td>
+                            <td>
+                                <img id="luxiangchaxun" src="../../images/Customer/luxiangchaxun1.jpg" />
+                            </td>
+                            <td>
+                                <img id="xitongguanli" src="../../images/Customer/xitongguanli1.jpg" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                视频监控
+                            </td>
+                            <td>
+                                录像查询
+                            </td>
+                            <td>
+                                系统管理
+                            </td>
+                        </tr>
+                    </table>
+                </center>
+            </div>
+        </div>
+    </div>
+    <div region="south" split="true" style="height: 30px;" border="false">
+        <div align="center">
+            CopyRight@2006-2012 <a target="_blank" href="http://www.chinabetter.com">www.chinabetter.com</a></div>
+    </div>
+</div>
+<div id="mm" class="easyui-menu" style="width: 150px; display: none">
+    <div id="mm-tabupdate" iconcls="icon-reload">
+        刷新</div>
+    <div class="menu-sep">
+    </div>
+    <div id="mm-tabclose">
+        关闭</div>
+    <div id="mm-tabcloseall">
+        全部关闭</div>
+    <div id="mm-tabcloseother">
+        除此之外全部关闭</div>
+    <div class="menu-sep">
+    </div>
+    <div id="mm-tabcloseright">
+        当前页右侧全部关闭</div>
+    <div id="mm-tabcloseleft">
+        当前页左侧全部关闭</div>
+    <div class="menu-sep">
+    </div>
+    <div id="mm-exit">
+        退出</div>
+</div>
+<div id="dlg_GlobalPrint" data-options="iconCls:'icon-print'" fit="true" style="padding: 1px;
+    display: none">
+    <iframe src="" style="width: 98%; height: 98%" id="frmPrintURL"></iframe>
+</div>
+<div id="dlg_GlobalPrintTaxSheet" data-options="iconCls:'icon-print'" fit="true"
+    style="padding: 1px;">
+</div>
+<div id="dlg_GlobalDetail" fit="true" data-options="iconCls:'icon-save'" style="padding: 1px;
+    width: 400px; height: 300px;">
+</div>
+<div id="dlg_MsgAlert" style="padding: 1px; display: none">
+    <input type="text" style="display: block; width: 0px; height: 0px; border: 0" id="txtGlobalTextInput"
+        name="txtGlobalTextInput" />
+    <div id="msgContent">
+    </div>
+</div>

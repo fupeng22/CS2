@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Index</title>
+    <script src="@Url.Content("~/JS/Customer/CustomerTaxFeeCheckDetail.js")" type="text/javascript"></script>
+</head>
+<body>
+    <div id="toolBarDetail" style="padding: 2px; height: auto">
+        <input  type="hidden" id="hid_wbID" name="hid_wbID" value='@ViewData["Detail_wbID"]'/>
+        <a href="#" class="easyui-linkbutton" id="btnSeleAll_SubWayBill" iconcls="icon-seleall"
+            plain="true">全选</a>|<a href="#" class="easyui-linkbutton" id="btnInverseSele_SubWayBill"
+                iconcls="icon-inversesele" plain="true">反选</a>|<a href="#" class="easyui-linkbutton"
+                    id="btnTaxFeeCheck_SubWayBill" iconcls="icon-check" plain="true">批量核准税金</a>&nbsp;&nbsp;&nbsp;<span>总运单号:<font
+                        style="font-weight: bold; color: Red">@ViewData["Detail_wbSerialNum"]</font>&nbsp;&nbsp;&nbsp;分运单税金统计:<font
+                            style="font-weight: bold; color: Red">@ViewData["Detail_TaxValueCheckSum"]</font>&nbsp;&nbsp;&nbsp;分运单号:<input
+                                type="text" id="txtSubWayBillCode" name="txtSubWayBillCode" /></span>&nbsp;<a href="#"
+                                    id="btnQuery_Detail" name="btnQuery_Detail" class="easyui-linkbutton" data-options="iconCls:'icon-search'">
+                                    查询</a>&nbsp;&nbsp;&nbsp;<font style="color: Red">核准税金为"-1"表示未进行核准</font>
+    </div>
+    <div id="DG_SubWayBillDetail" fit="true">
+    </div>
+    <div id="dlg_UpdateTaxValueCheckInfo" data-options="iconCls:'icon-edit'" style="padding: 5px;
+        width: 200px; height: 150px;">
+        <input type="hidden" id="hid_swbID" name="hid_swbID" />
+        <input type="hidden" id="hid_IDForUpdate" name="hid_IDForUpdate" />
+        <table>
+            <tr>
+                <td>
+                    分运单号：
+                </td>
+                <td>
+                    <span id="span_swbSerialNum"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    核准税金：
+                </td>
+                <td>
+                    <input type="text" id="txtTaxValueCheck" name="txtTaxValueCheck" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

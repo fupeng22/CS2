@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="HuayuForeStore_Detail_DS" targetNamespace="http://tempuri.org/HuayuForeStore_Detail_DS.xsd" xmlns:mstns="http://tempuri.org/HuayuForeStore_Detail_DS.xsd" xmlns="http://tempuri.org/HuayuForeStore_Detail_DS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="HuayuForeStore_Detail_DS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="HuayuForeStore_Detail_DS" msprop:Generator_UserDSName="HuayuForeStore_Detail_DS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="swbDescription_CHN" msprop:Generator_ColumnVarNameInTable="columnswbDescription_CHN" msprop:Generator_ColumnPropNameInRow="swbDescription_CHN" msprop:Generator_ColumnPropNameInTable="swbDescription_CHNColumn" msprop:Generator_UserColumnName="swbDescription_CHN" type="xs:string" minOccurs="0" />
+              <xs:element name="swbDescription_ENG" msprop:Generator_ColumnVarNameInTable="columnswbDescription_ENG" msprop:Generator_ColumnPropNameInRow="swbDescription_ENG" msprop:Generator_ColumnPropNameInTable="swbDescription_ENGColumn" msprop:Generator_UserColumnName="swbDescription_ENG" type="xs:string" minOccurs="0" />
+              <xs:element name="swbNumber" msprop:Generator_ColumnVarNameInTable="columnswbNumber" msprop:Generator_ColumnPropNameInRow="swbNumber" msprop:Generator_ColumnPropNameInTable="swbNumberColumn" msprop:Generator_UserColumnName="swbNumber" type="xs:string" minOccurs="0" />
+              <xs:element name="swbWeight" msprop:Generator_ColumnVarNameInTable="columnswbWeight" msprop:Generator_ColumnPropNameInRow="swbWeight" msprop:Generator_ColumnPropNameInTable="swbWeightColumn" msprop:Generator_UserColumnName="swbWeight" type="xs:string" minOccurs="0" />
+              <xs:element name="swbValue" msprop:Generator_ColumnVarNameInTable="columnswbValue" msprop:Generator_ColumnPropNameInRow="swbValue" msprop:Generator_ColumnPropNameInTable="swbValueColumn" msprop:Generator_UserColumnName="swbValue" type="xs:string" minOccurs="0" />
+              <xs:element name="swbMonetary" msprop:Generator_ColumnVarNameInTable="columnswbMonetary" msprop:Generator_ColumnPropNameInRow="swbMonetary" msprop:Generator_ColumnPropNameInTable="swbMonetaryColumn" msprop:Generator_UserColumnName="swbMonetary" type="xs:string" minOccurs="0" />
+              <xs:element name="TaxNo" msprop:Generator_ColumnVarNameInTable="columnTaxNo" msprop:Generator_ColumnPropNameInRow="TaxNo" msprop:Generator_ColumnPropNameInTable="TaxNoColumn" msprop:Generator_UserColumnName="TaxNo" type="xs:string" minOccurs="0" />
+              <xs:element name="TaxRate" msprop:Generator_ColumnVarNameInTable="columnTaxRate" msprop:Generator_ColumnPropNameInRow="TaxRate" msprop:Generator_ColumnPropNameInTable="TaxRateColumn" msprop:Generator_UserColumnName="TaxRate" type="xs:string" minOccurs="0" />
+              <xs:element name="mismatchCargoName" msprop:Generator_ColumnVarNameInTable="columnmismatchCargoName" msprop:Generator_ColumnPropNameInRow="mismatchCargoName" msprop:Generator_ColumnPropNameInTable="mismatchCargoNameColumn" msprop:Generator_UserColumnName="mismatchCargoName" type="xs:string" minOccurs="0" />
+              <xs:element name="belowFullPrice" msprop:Generator_ColumnVarNameInTable="columnbelowFullPrice" msprop:Generator_ColumnPropNameInRow="belowFullPrice" msprop:Generator_ColumnPropNameInTable="belowFullPriceColumn" msprop:Generator_UserColumnName="belowFullPrice" type="xs:string" minOccurs="0" />
+              <xs:element name="above1000" msprop:Generator_ColumnVarNameInTable="columnabove1000" msprop:Generator_ColumnPropNameInRow="above1000" msprop:Generator_ColumnPropNameInTable="above1000Column" msprop:Generator_UserColumnName="above1000" type="xs:string" minOccurs="0" />
+              <xs:element name="FinalCheckResultDescription" msprop:Generator_ColumnVarNameInTable="columnFinalCheckResultDescription" msprop:Generator_ColumnPropNameInRow="FinalCheckResultDescription" msprop:Generator_ColumnPropNameInTable="FinalCheckResultDescriptionColumn" msprop:Generator_UserColumnName="FinalCheckResultDescription" type="xs:string" minOccurs="0" />
+              <xs:element name="FinalHandleSuggestDescription" msprop:Generator_ColumnVarNameInTable="columnFinalHandleSuggestDescription" msprop:Generator_ColumnPropNameInRow="FinalHandleSuggestDescription" msprop:Generator_ColumnPropNameInTable="FinalHandleSuggestDescriptionColumn" msprop:Generator_UserColumnName="FinalHandleSuggestDescription" type="xs:string" minOccurs="0" />
+              <xs:element name="CheckResultOperator" msprop:Generator_ColumnVarNameInTable="columnCheckResultOperator" msprop:Generator_ColumnPropNameInRow="CheckResultOperator" msprop:Generator_ColumnPropNameInTable="CheckResultOperatorColumn" msprop:Generator_UserColumnName="CheckResultOperator" type="xs:string" minOccurs="0" />
+              <xs:element name="swbdID" msprop:Generator_ColumnVarNameInTable="columnswbdID" msprop:Generator_ColumnPropNameInRow="swbdID" msprop:Generator_ColumnPropNameInTable="swbdIDColumn" msprop:Generator_UserColumnName="swbdID" type="xs:string" minOccurs="0" />
+              <xs:element name="swbID" msprop:Generator_ColumnVarNameInTable="columnswbID" msprop:Generator_ColumnPropNameInRow="swbID" msprop:Generator_ColumnPropNameInTable="swbIDColumn" msprop:Generator_UserColumnName="swbID" type="xs:string" minOccurs="0" />
+              <xs:element name="TaxRateDescription" msprop:Generator_ColumnVarNameInTable="columnTaxRateDescription" msprop:Generator_ColumnPropNameInRow="TaxRateDescription" msprop:Generator_ColumnPropNameInTable="TaxRateDescriptionColumn" msprop:Generator_UserColumnName="TaxRateDescription" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
